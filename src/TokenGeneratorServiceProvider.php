@@ -13,7 +13,5 @@ class TokenGeneratorServiceProvider extends ServiceProvider {
                  __DIR__.'/config' => $this->app->configPath(),
              ], 'token-generator');
         }
-
-        $this->mergeConfigFrom(__DIR__.'/config/token_generator_config.php', 'token_generator_config');
     }
 }

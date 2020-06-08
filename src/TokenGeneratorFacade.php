@@ -4,16 +4,20 @@ namespace Mehradsadeghi\TokenGenerator;
 
 use Illuminate\Support\Facades\Facade;
 
+/**
+ * Class TokenGeneratorFacade
+ * @method static TokenGeneratorContract generate()
+ */
 class TokenGeneratorFacade extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        $default = config("token_generator_config.default");
+        $default = config("token-generator.default");
 
         self::checkIfDriverExists($default);
 
-        $driver = config("token_generator_config.drivers.$default.driver");
-        $options = config("token_generator_config.drivers.$default.options");
+        $driver = config("token-generator.drivers.$default.driver");
+        $options = config("token-generator.drivers.$default.options");
 
         if(!$options) {
             return $driver;
@@ -28,7 +32,7 @@ class TokenGeneratorFacade extends Facade
 
     private static function checkIfDriverExists($default)
     {
-        if (!class_exists(config("token_generator_config.drivers.$default.driver"))) {
+        if (!class_exists(config("token-generator.drivers.$default.driver"))) {
             throw new \Exception('Token generator driver is not specified properly.');
         }
     }
