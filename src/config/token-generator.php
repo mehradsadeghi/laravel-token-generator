@@ -2,7 +2,7 @@
 
 return [
 
-    'default' => 'hash',
+    'default' => 'basic',
 
     'drivers' => [
 
