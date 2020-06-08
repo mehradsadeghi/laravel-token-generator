@@ -1,0 +1,50 @@
+{
+  "name": "mehradsadeghi/laravel-token-generator",
+  "description": "Generate tokens based on your desire driver and algorithm.",
+  "keywords": [
+    "token",
+    "laravel-token",
+    "laravel-token-generator",
+    "token-generator"
+  ],
+  "homepage": "https://github.com/mehradsadeghi/laravel-token-generator",
+  "license": "MIT",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Mehrad Sadeghi",
+      "email": "mehrad177@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^7",
+    "laravel/framework": "5.*|6.*|7.*"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^4.0",
+    "mockery/mockery": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Mehradsadeghi\\TokenGenerator\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Mehradsadeghi\\TokenGeneratorTest\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit",
+    "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Mehradsadeghi\\TokenGenerator\\TokenGeneratorServiceProvider"
+      ]
+    }
+  }
+}
