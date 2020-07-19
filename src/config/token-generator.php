@@ -2,7 +2,7 @@
 
 return [
 
-    'default' => 'basic',
+    'default' => env('TOKEN_GENERATOR_DEFAULT', 'basic'),
 
     'drivers' => [
 
