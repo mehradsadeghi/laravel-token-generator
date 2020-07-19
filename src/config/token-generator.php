@@ -16,12 +16,12 @@ return [
         'crypto' => [
             'driver' => \Mehradsadeghi\TokenGenerator\Drivers\Crypto::class,
             'options' => [
-                'length' => 10
+                'length' => 10 // length in crypto gets doubled
             ]
         ],
 
-        'hash' => [
-            'driver' => \Mehradsadeghi\TokenGenerator\Drivers\Hash::class,
+        'unique' => [
+            'driver' => \Mehradsadeghi\TokenGenerator\Drivers\Unique::class,
             'options' => [
                 'alg' => 'sha256'
             ]

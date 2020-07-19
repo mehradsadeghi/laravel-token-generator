@@ -4,7 +4,7 @@ namespace Mehradsadeghi\TokenGenerator\Drivers;
 
 use Mehradsadeghi\TokenGenerator\TokenGeneratorContract;
 
-class Hash implements TokenGeneratorContract
+class Unique implements TokenGeneratorContract
 {
     private $alg;
 
