@@ -3,11 +3,13 @@
 namespace Mehradsadeghi\TokenGenerator;
 
 use Illuminate\Support\Facades\Facade;
+use Illuminate\Support\Manager;
 
 /**
  * Class TokenGeneratorFacade
  * @method static TokenGeneratorContract generate()
- * @method static TokenGeneratorContract buildDriver($driverName)
+ * @method static Manager driver($driver)
+ * @method static TokenGeneratorManager buildDriver($driverName)
  */
 class TokenGeneratorFacade extends Facade
 {
