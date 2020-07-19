@@ -6,17 +6,17 @@ use Illuminate\Support\Manager;
 
 class TokenGeneratorManager extends Manager {
 
-    public function createBasicDriver()
+    protected function createBasicDriver()
     {
         return $this->buildDriver('basic');
     }
 
-    public function createCryptoDriver()
+    protected function createCryptoDriver()
     {
         return $this->buildDriver('crypto');
     }
 
-    public function createUniqueDriver()
+    protected function createUniqueDriver()
     {
         return $this->buildDriver('unique');
     }

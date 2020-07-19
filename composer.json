@@ -26,6 +26,9 @@
     "mockery/mockery": "*"
   },
   "autoload": {
+    "files": [
+      "src/helpers.php"
+    ],
     "psr-4": {
       "Mehradsadeghi\\TokenGenerator\\": "src/"
     }
