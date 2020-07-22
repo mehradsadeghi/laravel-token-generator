@@ -118,15 +118,7 @@ class CustomGenerator implements TokenGeneratorContract
 
 ```
 
-3) Extend token generator's functionalities in `AppServiceProvider` (or your desired provider):
-
-```php
-token()->extend('new_driver', function() {
-    return token()->buildDriver('new_driver');
-});
-```
-
-And finally:
+3) And finally:
 ```php
 token()->driver('new_driver')->generate();
 ```

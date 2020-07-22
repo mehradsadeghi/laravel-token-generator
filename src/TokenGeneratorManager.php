@@ -3,6 +3,8 @@
 namespace Mehradsadeghi\TokenGenerator;
 
 use Illuminate\Support\Manager;
+use Illuminate\Support\Str;
+use InvalidArgumentException;
 
 class TokenGeneratorManager extends Manager {
 
@@ -32,5 +34,26 @@ class TokenGeneratorManager extends Manager {
         $options = config("token-generator.drivers.$driverName.options") ?: [];
 
         return new $driver(...array_values($options));
+    }
+
+    protected function createDriver($driver)
+    {
+        if (isset($this->customCreators[$driver])) {
+            return $this->callCustomCreator($driver);
+        }
+
+        $method = 'create'.Str::studly($driver).'Driver';
+
+        if(method_exists($this, $method)) {
+            return $this->$method();
+        }
+
+        $customDriver = $this->app['config']["token-generator.drivers.$driver.driver"];
+
+        if(class_exists($customDriver)) {
+            return $this->buildDriver($driver);
+        }
+
+        throw new InvalidArgumentException("Driver [$driver] not supported.");
     }
 }

@@ -43,6 +43,22 @@ class ExtendNewDriverTest extends TestCase
         $token = TokenGeneratorFacade::driver('new')->generate();
         $this->assertEquals('token10', $token);
     }
+
+    /** @test */
+    public function facade_can_be_extended_just_with_adding_to_config()
+    {
+        config([
+            'token-generator.drivers.new' => [
+                'driver' => FakeDriver::class,
+                'options' => [
+                    'length' => 10
+                ]
+            ]
+        ]);
+
+        $token = TokenGeneratorFacade::driver('new')->generate();
+        $this->assertEquals('token10', $token);
+    }
 }
 
 
